@@ -8,7 +8,10 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-class MyDocument extends Document {
+interface Props {
+  styleTags: any;
+}
+class MyDocument extends Document<Props> {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
@@ -43,7 +46,7 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css"
           />
-          {this.props.styleTags}
+          {this.props.styleTags && this.props.styleTags}
         </Head>
         <body>
           <Main />
