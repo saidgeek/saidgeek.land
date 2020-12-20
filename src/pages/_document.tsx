@@ -5,14 +5,18 @@ import Document, {
   Head,
   Main,
   NextScript,
+  DocumentInitialProps,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 interface Props {
-  styleTags: any;
+  styleTags: unknown;
 }
+
 class MyDocument extends Document<Props> {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -38,7 +42,7 @@ class MyDocument extends Document<Props> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Html>
         <Head>
