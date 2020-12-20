@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import * as colors from '../particles/colors';
 import { Logo } from '../atom/Logo';
-import { H1 } from '../atom/Title';
+import { Title } from '../atom/Typography';
 
 const Row = styled.div`
   background-color: ${colors.WHITE};
@@ -25,7 +25,7 @@ export const Landing: React.FC<unknown> = () => {
     <Row>
       <Column>
         <Logo />
-        <H1>saidgeek.land</H1>
+        <Title>saidgeek.land</Title>
       </Column>
     </Row>
   );
